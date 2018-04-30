@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (4.7.1)
+  - Kingfisher (4.6.4)
+  - ObjectMapper (3.1.0)
+  - SQLite.swift (0.11.4):
+    - SQLite.swift/standard (= 0.11.4)
+  - SQLite.swift/standard (0.11.4)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - Kingfisher
+  - ObjectMapper (~> 3.1)
+  - SQLite.swift
+  - SVProgressHUD (~> 2.2)
+
+SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 1d5c79b613133eb39d254c93e26522070a4e5842
+
+COCOAPODS: 1.4.0
