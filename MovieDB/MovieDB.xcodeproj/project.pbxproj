@@ -17,6 +17,7 @@
 		D59B1D9A2097711000D386EC /* MoviesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B1D992097711000D386EC /* MoviesListTableViewCell.swift */; };
 		D59B1D9C209773B100D386EC /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B1D9B209773B100D386EC /* MovieList.swift */; };
 		D59B1D9E209780CE00D386EC /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B1D9D209780CE00D386EC /* MovieDetailViewController.swift */; };
+		D59B1DA02097AB6800D386EC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B1D9F2097AB6800D386EC /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D59B1D992097711000D386EC /* MoviesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListTableViewCell.swift; sourceTree = "<group>"; };
 		D59B1D9B209773B100D386EC /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		D59B1D9D209780CE00D386EC /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		D59B1D9F2097AB6800D386EC /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		FB043E0F4F7E7FE1B9137199 /* Pods-MovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieDB/Pods-MovieDB.release.xcconfig"; sourceTree = "<group>"; };
 		FBA3EAB07D5616844D1459A6 /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 		D59B1D95209769A700D386EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D59B1D9F2097AB6800D386EC /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				D59B1D8F2097695C00D386EC /* MoviesListViewController.swift in Sources */,
 				D59B1D5D209765BB00D386EC /* AppDelegate.swift in Sources */,
 				D59B1D9A2097711000D386EC /* MoviesListTableViewCell.swift in Sources */,
+				D59B1DA02097AB6800D386EC /* UIView.swift in Sources */,
 				D59B1D9C209773B100D386EC /* MovieList.swift in Sources */,
 				D59B1D9E209780CE00D386EC /* MovieDetailViewController.swift in Sources */,
 				D59B1D9720976C8C00D386EC /* APIConstants.swift in Sources */,

@@ -9,13 +9,21 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-
-    var movie : MovieList?
+    
+    @IBOutlet weak var imgMovieSmallPoster: UIImageView!
+    @IBOutlet weak var imgMoviePoster: UIImageView!
+    @IBOutlet weak var labelMovieName: UILabel!
+    @IBOutlet weak var labelMovieOverView: UILabel!
+    @IBOutlet weak var labelIsMovieAdult: UILabel!
+    @IBOutlet weak var labelMovieLanguage: UILabel!
+    @IBOutlet weak var labelMovieReleaseDates: UILabel!
+    @IBOutlet weak var labelMovieAverageVotes: UILabel!
+    
+    var movieDetails: MovieList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,4 +31,22 @@ class MovieDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func configureView() {
+        if let movieDetails = movieDetails {
+            configureMovieDetails(movie: movieDetails)
+        }
+    }
+    
+    func configureMovieDetails(movie: MovieList) {
+        let movieImageUrl = WebServiceAPIConstants.imageURL + movie.backdropPath!
+        imgMoviePoster.kf.setImage(with: URL(string: movieImageUrl))
+        let smallPosterUrl = WebServiceAPIConstants.imageURL + movie.posterPath!
+        imgMovieSmallPoster.kf.setImage(with: URL(string: smallPosterUrl))
+        labelMovieName.text = movie.title ?? "N/A"
+        labelMovieOverView.text = movie.overView ?? "N/A"
+        labelIsMovieAdult.text = "\(String(describing: movie.isAdult))"
+        labelMovieLanguage.text = movie.originalLangauage
+        labelMovieReleaseDates.text = movie.releaseDate
+        labelMovieAverageVotes.text = "\(String(describing: movie.voteAverage))"
+    }
 }

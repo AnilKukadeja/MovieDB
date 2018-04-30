@@ -31,7 +31,15 @@ class MovieList: Mappable {
     
     var id: Int?
     var title: String?
-    var backdrop_path: String?
+    var backdropPath: String?
+    var isVideoAvailable : Bool?
+    var voteAverage : Double?
+    var popularity : String?
+    var posterPath : String?
+    var originalLangauage : String?
+    var isAdult : Bool?
+    var overView : String?
+    var releaseDate : String?
     
     required init?(map: Map) {
     }
@@ -39,6 +47,14 @@ class MovieList: Mappable {
     func mapping(map: Map) {
         id <- map["id"]
         title <- map["title"]
-        backdrop_path <- map["backdrop_path"]
+        backdropPath <- map["backdrop_path"]
+        isVideoAvailable <- map["video"]
+        voteAverage <- map["vote_average"]
+        popularity <- map["popularity"]
+        posterPath <- map["poster_path"]
+        originalLangauage <- map["original_language"]
+        isAdult <- map["adult"]
+        overView <- map["overview"]
+        releaseDate <- map["release_date"]
     }
 }

@@ -86,8 +86,8 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
         
         if let movieList = movieListResponse?.results{
             cell.labelMovieName.text = movieList[indexPath.row].title ?? "Default Title"
-            cell.labelReleaseDate.text = movieList[indexPath.row].backdrop_path
-            let imageUrl = WebServiceAPIConstants.imageURL + movieList[indexPath.row].backdrop_path!
+            cell.labelReleaseDate.text = movieList[indexPath.row].releaseDate ?? "Default Date"
+            let imageUrl = WebServiceAPIConstants.imageURL + movieList[indexPath.row].posterPath!
             cell.imgMovieThumbnail.kf.setImage(with: URL(string: imageUrl)!)
         }
         
@@ -95,14 +95,13 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 98
+        return 95
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let movieDetailViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
-        
-        
+        movieDetailViewControllerObj.movieDetails = movieListResponse?.results?[indexPath.row]
         self.navigationController?.pushViewController(movieDetailViewControllerObj, animated: true)
     }
     
