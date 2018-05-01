@@ -14,11 +14,19 @@ import Kingfisher
 class MoviesListViewController: UIViewController {
     
     @IBOutlet weak var tableViewMovieList: UITableView!
-    var movieListResponse: ResponseModel?
+    var moviesList: [MovieList]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMovieList()
+        
+        if let movies = DBManager.shared.getMoviesFromDB(), movies.count > 0 {
+            let mappedMovies = Mapper<MovieList>().mapArray(JSONArray: movies)
+            self.moviesList = mappedMovies
+            reloadTableView()
+        } else {
+            getMovieList()
+        }
+        
     }
 
 }
@@ -51,9 +59,10 @@ extension MoviesListViewController{
                     if (response.result.error == nil) {
                         if let resultDictonary = response.result.value as? [String:Any] {
                             if let mappedModel = Mapper<ResponseModel>().map(JSON: resultDictonary){
-                                
-                                self.movieListResponse = mappedModel
-                                print(mappedModel.toJSON())
+                                if let movies = mappedModel.results, movies.count > 0 {
+                                    self.moviesList = movies
+                                    DBManager.shared.insertMoviesToDB(movies: movies)
+                                }
                                 
                                 self.reloadTableView()
                             }
@@ -75,7 +84,7 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieListResponse?.results?.count ?? 0
+        return moviesList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,7 +93,7 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
             return UITableViewCell()
         }
         
-        if let movieList = movieListResponse?.results{
+        if let movieList = moviesList {
             cell.labelMovieName.text = movieList[indexPath.row].title ?? "Default Title"
             cell.labelReleaseDate.text = movieList[indexPath.row].releaseDate ?? "Default Date"
             let imageUrl = WebServiceAPIConstants.imageURL + movieList[indexPath.row].posterPath!
@@ -101,7 +110,7 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let movieDetailViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
-        movieDetailViewControllerObj.movieDetails = movieListResponse?.results?[indexPath.row]
+        movieDetailViewControllerObj.movieDetails = moviesList?[indexPath.row]
         self.navigationController?.pushViewController(movieDetailViewControllerObj, animated: true)
     }
     

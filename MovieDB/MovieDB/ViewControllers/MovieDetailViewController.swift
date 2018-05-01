@@ -14,8 +14,6 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var imgMoviePoster: UIImageView!
     @IBOutlet weak var labelMovieName: UILabel!
     @IBOutlet weak var labelMovieOverView: UILabel!
-    @IBOutlet weak var labelIsMovieAdult: UILabel!
-    @IBOutlet weak var labelMovieLanguage: UILabel!
     @IBOutlet weak var labelMovieReleaseDates: UILabel!
     @IBOutlet weak var labelMovieAverageVotes: UILabel!
     
@@ -31,7 +29,15 @@ class MovieDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnBackAction(_ sender: UIButton) {
+        
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     func configureView() {
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
         if let movieDetails = movieDetails {
             configureMovieDetails(movie: movieDetails)
         }
@@ -44,9 +50,7 @@ class MovieDetailViewController: UIViewController {
         imgMovieSmallPoster.kf.setImage(with: URL(string: smallPosterUrl))
         labelMovieName.text = movie.title ?? "N/A"
         labelMovieOverView.text = movie.overView ?? "N/A"
-        labelIsMovieAdult.text = "\(String(describing: movie.isAdult))"
-        labelMovieLanguage.text = movie.originalLangauage
         labelMovieReleaseDates.text = movie.releaseDate
-        labelMovieAverageVotes.text = "\(String(describing: movie.voteAverage))"
+        labelMovieAverageVotes.text = "\(String(describing: movie.voteAverage ?? 0))"
     }
 }
