@@ -14,6 +14,10 @@ import Kingfisher
 class MoviesListViewController: UIViewController {
     
     @IBOutlet weak var tableViewMovieList: UITableView!
+    
+    var currentPage = 1
+    var totalPage = 1
+    
     var moviesList: [MovieList]?
     
     override func viewDidLoad() {
@@ -24,7 +28,7 @@ class MoviesListViewController: UIViewController {
             self.moviesList = mappedMovies
             reloadTableView()
         } else {
-            getMovieList()
+            getMovieList(currentPage: currentPage)
         }
         
     }
@@ -48,13 +52,13 @@ extension MoviesListViewController{
 
 extension MoviesListViewController{
     
-    func getMovieList(){
+    func getMovieList(currentPage : Int){
         
             // Add URL parameters
             let urlParams = [
-                WebServiceAPIConstants.apiKey:"201f3add5604b108ffe6d1d53dd54a87",
-                WebServiceAPIConstants.page:"1",
-                ]
+                WebServiceAPIConstants.apiKey: "201f3add5604b108ffe6d1d53dd54a87",
+                WebServiceAPIConstants.page: currentPage
+                ] as [String : Any]
             
             // Fetch Request
             Alamofire.request(WebServiceAPIConstants.nowPlayingMovies, method: .get, parameters: urlParams)
@@ -63,8 +67,11 @@ extension MoviesListViewController{
                     if (response.result.error == nil) {
                         if let resultDictonary = response.result.value as? [String:Any] {
                             if let mappedModel = Mapper<ResponseModel>().map(JSON: resultDictonary){
+                                if let totalPage = mappedModel.total_pages {
+                                    self.totalPage = totalPage
+                                }
                                 if let movies = mappedModel.results, movies.count > 0 {
-                                    self.moviesList = movies
+                                    self.moviesList?.append(contentsOf: movies)
                                     DBManager.shared.insertMoviesToDB(movies: movies)
                                 }
                                 
@@ -100,8 +107,11 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
         if let movieList = moviesList {
             cell.labelMovieName.text = movieList[indexPath.row].title ?? "Default Title"
             cell.labelReleaseDate.text = movieList[indexPath.row].releaseDate ?? "Default Date"
-            let imageUrl = WebServiceAPIConstants.imageURL + movieList[indexPath.row].posterPath!
-            cell.imgMovieThumbnail.kf.setImage(with: URL(string: imageUrl)!)
+            
+            if let imageUrl = movieList[indexPath.row].posterPath{
+                    cell.imgMovieThumbnail.kf.setImage(with: URL(string: WebServiceAPIConstants.imageURL + imageUrl))
+            }
+            
         }
         
         return cell
@@ -116,6 +126,20 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
         guard let movieDetailViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
         movieDetailViewControllerObj.movieDetails = moviesList?[indexPath.row]
         self.navigationController?.pushViewController(movieDetailViewControllerObj, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let moviesList = moviesList{
+            
+            if(indexPath.row == (moviesList.count) - 1){
+                
+                if(currentPage <= totalPage){
+                    getMovieList(currentPage: currentPage)
+                    currentPage += 1
+                }
+            }
+        }
     }
     
 }

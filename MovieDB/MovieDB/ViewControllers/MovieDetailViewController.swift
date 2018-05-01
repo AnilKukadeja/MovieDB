@@ -49,13 +49,18 @@ class MovieDetailViewController: UIViewController {
     }
     
     func configureMovieDetails(movie: MovieList) {
-        let movieImageUrl = WebServiceAPIConstants.imageURL + movie.backdropPath!
-        imgMoviePoster.kf.setImage(with: URL(string: movieImageUrl))
-        let smallPosterUrl = WebServiceAPIConstants.imageURL + movie.posterPath!
-        imgMovieSmallPoster.kf.setImage(with: URL(string: smallPosterUrl))
+        
+        if let movieImageUrl = movie.backdropPath{
+                imgMoviePoster.kf.setImage(with: URL(string: WebServiceAPIConstants.imageURL + movieImageUrl))
+        }
+        
+        if let smallPosterUrl = movie.posterPath{
+                imgMovieSmallPoster.kf.setImage(with: URL(string: WebServiceAPIConstants.imageURL + smallPosterUrl))
+        }
+        
         labelMovieName.text = movie.title ?? "N/A"
         labelMovieOverView.text = movie.overView ?? "N/A"
-        labelMovieReleaseDates.text = movie.releaseDate
+        labelMovieReleaseDates.text = movie.releaseDate ?? "N/A"
         labelMovieAverageVotes.text = "\(String(describing: movie.voteAverage ?? 0))"
     }
 }

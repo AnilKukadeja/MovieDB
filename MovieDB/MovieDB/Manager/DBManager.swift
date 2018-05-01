@@ -53,11 +53,11 @@ class DBManager {
                     let movieInsert = MoviesTable.table.insert(or: .replace,
                                                                   MoviesTable.id <- movie.id!,
                                                                   MoviesTable.title <- movie.title!,
-                                                                  MoviesTable.backdropPath <- movie.backdropPath!,
-                                                                  MoviesTable.voteAverage <- movie.voteAverage!,
-                                                                  MoviesTable.posterPath <- movie.posterPath!,
-                                                                  MoviesTable.overView <- movie.overView!,
-                                                                  MoviesTable.releaseDate <- movie.releaseDate!)
+                                                                  MoviesTable.backdropPath <- movie.backdropPath ?? "N/A",
+                                                                  MoviesTable.voteAverage <- movie.voteAverage ?? 0.0,
+                                                                  MoviesTable.posterPath <- movie.posterPath ?? "N/A",
+                                                                  MoviesTable.overView <- movie.overView ?? "N/A",
+                                                                  MoviesTable.releaseDate <- movie.releaseDate ?? "N/A")
                     let _ = try db.run(movieInsert)
                 }
             }
