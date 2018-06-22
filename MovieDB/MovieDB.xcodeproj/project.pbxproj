@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C0843F720DCC3AD0026512E /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0843F620DCC3AD0026512E /* ResponseModel.swift */; };
+		9C0843FC20DCD9450026512E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0843FB20DCD9450026512E /* UITableView.swift */; };
 		A08E9FD9C735E01E36E587F0 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A72C4637EDAFAD8DCB677F /* Pods_MovieDB.framework */; };
 		D513C6CF2098AB3000356154 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D513C6CE2098AB3000356154 /* DBManager.swift */; };
 		D59B1D5D209765BB00D386EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B1D5C209765BB00D386EC /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		9C0843F620DCC3AD0026512E /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		9C0843FB20DCD9450026512E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		D4A72C4637EDAFAD8DCB677F /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D513C6CE2098AB3000356154 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D59B1D59209765BB00D386EC /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				D59B1D9F2097AB6800D386EC /* UIView.swift */,
+				9C0843FB20DCD9450026512E /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				D513C6CF2098AB3000356154 /* DBManager.swift in Sources */,
 				D59B1DA02097AB6800D386EC /* UIView.swift in Sources */,
 				D59B1D9C209773B100D386EC /* MovieList.swift in Sources */,
+				9C0843FC20DCD9450026512E /* UITableView.swift in Sources */,
 				D59B1D9E209780CE00D386EC /* MovieDetailViewController.swift in Sources */,
 				D59B1D9720976C8C00D386EC /* APIConstants.swift in Sources */,
 			);

@@ -101,6 +101,11 @@ extension MoviesListViewController : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(moviesList.count == 0){
+            tableView.setEmptyMessage("No data found. Check your internet connection")
+        }else{
+            tableView.restore()
+        }
         return moviesList.count
     }
     
