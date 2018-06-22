@@ -15,7 +15,6 @@ class MoviesListTableViewCell: UITableViewCell {
     @IBOutlet weak var labelMovieName: UILabel!
     @IBOutlet weak var labelReleaseDate: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

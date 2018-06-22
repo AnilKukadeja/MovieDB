@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0843F720DCC3AD0026512E /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0843F620DCC3AD0026512E /* ResponseModel.swift */; };
 		A08E9FD9C735E01E36E587F0 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A72C4637EDAFAD8DCB677F /* Pods_MovieDB.framework */; };
 		D513C6CF2098AB3000356154 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D513C6CE2098AB3000356154 /* DBManager.swift */; };
 		D59B1D5D209765BB00D386EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B1D5C209765BB00D386EC /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C0843F620DCC3AD0026512E /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		D4A72C4637EDAFAD8DCB677F /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D513C6CE2098AB3000356154 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D59B1D59209765BB00D386EC /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,9 +94,7 @@
 				D513C6CD2098AB2000356154 /* Manager */,
 				D59B1D93209769A700D386EC /* Constants */,
 				D59B1D95209769A700D386EC /* Extensions */,
-				D59B1D94209769A700D386EC /* Helpers */,
 				D59B1D852097695C00D386EC /* Models */,
-				D59B1D862097695C00D386EC /* Protocols */,
 				D59B1D872097695C00D386EC /* Resources */,
 				D59B1D892097695C00D386EC /* Storyboards */,
 				D59B1D832097695C00D386EC /* ViewControllers */,
@@ -118,15 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				D59B1D9B209773B100D386EC /* MovieList.swift */,
+				9C0843F620DCC3AD0026512E /* ResponseModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		D59B1D862097695C00D386EC /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		D59B1D872097695C00D386EC /* Resources */ = {
@@ -160,13 +154,6 @@
 				D59B1D9620976C8C00D386EC /* APIConstants.swift */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		D59B1D94209769A700D386EC /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D59B1D95209769A700D386EC /* Extensions */ = {
@@ -331,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D59B1D8F2097695C00D386EC /* MoviesListViewController.swift in Sources */,
+				9C0843F720DCC3AD0026512E /* ResponseModel.swift in Sources */,
 				D59B1D5D209765BB00D386EC /* AppDelegate.swift in Sources */,
 				D59B1D9A2097711000D386EC /* MoviesListTableViewCell.swift in Sources */,
 				D513C6CF2098AB3000356154 /* DBManager.swift in Sources */,

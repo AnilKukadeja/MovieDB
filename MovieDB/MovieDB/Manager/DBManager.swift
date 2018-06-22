@@ -31,7 +31,6 @@ class DBManager {
         
         return try! Connection("\(path)/MovieDB.sqlite")
     }()
-
     
     func createMovieDBSchema() {
         let _ = try? db.run(MoviesTable.table.create(ifNotExists: true) { movies in
@@ -66,8 +65,6 @@ class DBManager {
         }
     }
     
-    
-    
     func getMoviesFromDB() -> [[String:Any]]? {
         var moviesList = [[String : Any]]()
         do {
@@ -88,8 +85,4 @@ class DBManager {
         }
         return nil
     }
-    
-    
 }
-
-

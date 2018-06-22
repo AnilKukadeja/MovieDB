@@ -1,6 +1,6 @@
 # MovieDB
 
-First of all take a pull from master branch. After that you need to install the pods to run the project.
+First of all take a pull from master branch.
 
 Once you install the pods then run the project from Xcode latest version 9.3.
 
