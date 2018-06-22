@@ -2,7 +2,7 @@
 //  UITableView.swift
 //  MovieDB
 //
-//  Created by Webinfinium Technologies on 22/06/18.
+//  Created by Parth Adroja on 22/06/18.
 //  Copyright © 2018 Anil Kukadeja. All rights reserved.
 //
 
